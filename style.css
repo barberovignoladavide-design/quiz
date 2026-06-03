@@ -1,36 +1,77 @@
+/* 1. Sfondo con gradiente fluido */
 body {
-    background: linear-gradient(135deg, #fff0f5, #ffe6f0);
-    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fff0f5 0%, #ffe6f0 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    margin: 0;
 }
+
+/* 2. Card: aggiungiamo un effetto vetro (glassmorphism) */
 .quiz-card {
     max-width: 500px;
-    border-radius: 25px;
-    border: none;
-    background: white;
-    animation: fadeIn 0.8s ease-in-out;
+    padding: 40px !important;
+    border-radius: 30px !important;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 15px 35px rgba(212, 106, 138, 0.15);
+    animation: fadeIn 0.8s ease-out;
 }
-.text-pink { color: #d46a8a; }
-.text-muted { color: #777 !important; }
+
+/* 3. Titolo con un tocco più elegante */
+.text-pink {
+    color: #c24d77;
+    letter-spacing: -1px;
+}
+
+/* 4. Bottoni delle risposte: design moderno */
+#answers button {
+    border: 2px solid #ffe6f0;
+    border-radius: 15px;
+    padding: 12px;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: white;
+}
+
+#answers button:hover {
+    background-color: #fff0f5 !important;
+    border-color: #d46a8a !important;
+    color: #d46a8a !important;
+    transform: translateY(-2px);
+}
+
+/* 5. Bottone "Inizia" e "Avanti" */
 .btn-pink {
     background-color: #d46a8a;
-    color: white;
-    border-radius: 30px;
-    padding: 12px 30px;
     border: none;
+    border-radius: 20px;
+    padding: 12px 40px;
     font-weight: bold;
-    transition: all 0.3s ease;
+    color: white;
+    box-shadow: 0 4px 15px rgba(212, 106, 138, 0.3);
 }
+
 .btn-pink:hover {
     background-color: #c24d77;
-    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(212, 106, 138, 0.4);
+    transform: scale(1.02);
 }
-.progress { background-color: white !important; }
-.bg-pink { background-color: #d46a8a !important; }
-#answers button:hover {
-    background-color: #ffe6f0 !important; /* rosa chiarissimo */
-    color: #ff4fa3 !important;            /* testo rosa */
-    border-color: #ff4fa3 !important;
+
+/* 6. Barra di progresso estetica */
+.progress {
+    height: 8px !important;
+    border-radius: 4px;
+    background-color: #f8d7e3 !important;
 }
-.btn-success { background-color: #4CAF50 !important; }
-.btn-danger { background-color: #ff4d4d !important; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.bg-pink {
+    background-color: #d46a8a !important;
+    border-radius: 4px;
+}
+
+/* 7. Animazioni fluide */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
