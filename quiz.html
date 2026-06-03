@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il nostro quiz ❤️</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS tuo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+
+    <div class="card shadow-lg p-4 quiz-card">
+
+        <!-- PROGRESS -->
+        <div class="progress mb-4">
+            <div id="progressBar" class="progress-bar bg-pink" style="width: 0%"></div>
+        </div>
+
+        <!-- DOMANDA -->
+        <h4 id="question" class="text-center mb-4">
+            Domanda
+        </h4>
+
+        <!-- RISPOSTE -->
+        <div id="answers" class="d-grid gap-2"></div>
+
+        <!-- PUNTEGGIO -->
+        <div class="d-flex justify-content-between align-items-center mt-4">
+
+            <span id="score" class="badge bg-success fs-6">
+                Punteggio: 0
+            </span>
+
+            <button id="nextBtn" class="btn btn-pink">
+                Avanti ➜
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

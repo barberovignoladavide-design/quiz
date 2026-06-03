@@ -1,0 +1,36 @@
+body {
+    background: linear-gradient(135deg, #fff0f5, #ffe6f0);
+    font-family: Arial, sans-serif;
+}
+.quiz-card {
+    max-width: 500px;
+    border-radius: 25px;
+    border: none;
+    background: white;
+    animation: fadeIn 0.8s ease-in-out;
+}
+.text-pink { color: #d46a8a; }
+.text-muted { color: #777 !important; }
+.btn-pink {
+    background-color: #d46a8a;
+    color: white;
+    border-radius: 30px;
+    padding: 12px 30px;
+    border: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.btn-pink:hover {
+    background-color: #c24d77;
+    transform: scale(1.05);
+}
+.progress { background-color: white !important; }
+.bg-pink { background-color: #d46a8a !important; }
+#answers button:hover {
+    background-color: #ffe6f0 !important; /* rosa chiarissimo */
+    color: #ff4fa3 !important;            /* testo rosa */
+    border-color: #ff4fa3 !important;
+}
+.btn-success { background-color: #4CAF50 !important; }
+.btn-danger { background-color: #ff4d4d !important; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
