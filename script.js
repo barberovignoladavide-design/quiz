@@ -1,8 +1,7 @@
-
 document.addEventListener("DOMContentLoaded", function () {
 
     // =========================
-    // 🏠 INDEX PAGE
+    // 🏠 LOGICA PAGINA INDEX
     // =========================
 
     const startBtn = document.getElementById("startBtn");
@@ -14,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // =========================
-    // 🎮 QUIZ PAGE
+    // 🎮 LOGICA PAGINA QUIZ
     // =========================
 
     const questions = [
@@ -55,68 +54,67 @@ document.addEventListener("DOMContentLoaded", function () {
     const progressBar = document.getElementById("progressBar");
     const nextBtn = document.getElementById("nextBtn");
 
-    // se non siamo nel quiz, esci
+    // Se non siamo nella pagina del quiz, interrompi l'esecuzione
     if (!questionEl) return;
 
     loadQuestion();
 
+    // Carica la domanda corrente
     function loadQuestion() {
-
         answered = false;
-
         const q = questions[current];
 
         questionEl.textContent = q.question;
         answersEl.innerHTML = "";
 
         q.answers.forEach(answer => {
-
             const btn = document.createElement("button");
             btn.classList.add("btn", "btn-outline-danger", "w-100");
             btn.textContent = answer;
 
             btn.addEventListener("click", () => checkAnswer(answer, btn));
-
             answersEl.appendChild(btn);
         });
 
         updateProgress();
     }
 
+    // Verifica se la risposta è corretta
     function checkAnswer(answer, btn) {
-
         if (answered) return;
         answered = true;
 
         const correctAnswers = questions[current].correct;
         const allBtns = answersEl.querySelectorAll("button");
 
+        // Disabilita tutti i bottoni
         allBtns.forEach(b => {
             b.disabled = true;
-
+            // Mostra visivamente quali erano quelle corrette
             if (correctAnswers.includes(b.textContent)) {
-                b.classList.remove("btn-outline-danger");
                 b.classList.add("btn-success");
             }
         });
 
+        // Applica l'animazione al bottone cliccato
         if (correctAnswers.includes(answer)) {
             score++;
             scoreEl.textContent = "Punteggio: " + score;
+            btn.classList.add("animate-success");
         } else {
-            btn.classList.add("btn-danger");
+            btn.classList.add("animate-error");
         }
     }
 
+    // Aggiorna la barra di progresso
     function updateProgress() {
         let percent = (current / questions.length) * 100;
         progressBar.style.width = percent + "%";
     }
 
+    // Passa alla domanda successiva
     nextBtn.addEventListener("click", function () {
-
         current++;
-
         if (current < questions.length) {
             loadQuestion();
         } else {
@@ -124,18 +122,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // Mostra il risultato finale
     function showResult() {
-
         questionEl.textContent = "Quiz finito ❤️";
-
         answersEl.innerHTML = "";
-
         nextBtn.style.display = "none";
-
         progressBar.style.width = "100%";
 
-        scoreEl.textContent =
-            `hai azzeccato il ${Math.round((score / questions.length) * 100)}% ti meriti un bacino❤️`;
+        scoreEl.textContent = `Hai azzeccato il ${Math.round((score / questions.length) * 100)}% ti meriti un bacino❤️`;
     }
 
 });
